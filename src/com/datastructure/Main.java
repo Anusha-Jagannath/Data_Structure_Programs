@@ -42,5 +42,8 @@ public class Main {
 		
 		PrimeNumber primeno = new PrimeNumber();
 		primeno.compute();
+		primeno.isAnagram();
+		primeno.printAnagrams();
+		primeno.printnonAnagram();
 	}
 }
