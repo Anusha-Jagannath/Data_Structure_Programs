@@ -45,5 +45,8 @@ public class Main {
 		primeno.isAnagram();
 		primeno.printAnagrams();
 		primeno.printnonAnagram();
+		System.out.println("Reversed linked list contents are");
+		primeno.reverseStack();
+		
 	}
 }

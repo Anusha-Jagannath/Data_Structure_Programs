@@ -14,6 +14,7 @@ public class PrimeNumber {
 	int[][] prime = new int[10][100];
 	int anagram[][] = new int[10][100];
 	int nonanagram[][] = new int[10][100];
+	LinkedList<Integer> list = new LinkedList<Integer>();
 
 	public boolean findPrime(int number) {
 
@@ -82,8 +83,8 @@ public class PrimeNumber {
 	}
 
 	/*
-	 * method to check prime no is anagram or not this method calls another method
-	 * anagram to find whether prime are anagram or not
+	 * method to check prime no is anagram or not this method calls another
+	 *  method anagram to find whether prime no are anagram or not
 	 */
 	public void isAnagram() {
 		for (int i = 0; i < 10; i++) {
@@ -117,10 +118,21 @@ public class PrimeNumber {
 			for (int j = 0; j < 100; j++) {
 				if (anagram[i][j] != 0) {
 					System.out.print(anagram[i][j] + " ");
+					list.add(anagram[i][j]);
 				}
 			}
 			System.out.println();
 		}
+	}
+	/*
+	 * calls linked list method to reverse the list
+	 * and prints the reversed list
+	 */
+	
+	public void reverseStack() {
+		list.print(); //before reversing
+		list.reverse();
+		list.print(); //after reversing
 	}
 
 	/*
