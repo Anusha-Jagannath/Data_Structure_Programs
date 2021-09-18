@@ -30,11 +30,12 @@ public class LinkedList<T extends Comparable<T>> {
 
 	public void print() {
 		Node temp = head;
-		System.out.println("LinkedList:");
-		while (temp != null) {
+		System.out.println("\nLinkedList:");
+		while (temp.next != null) {
 			System.out.print(temp.data + "->");
 			temp = temp.next;
 		}
+		System.out.println(temp.data);
 	}
 
 	/*
@@ -63,6 +64,21 @@ public class LinkedList<T extends Comparable<T>> {
 			add(key);
 
 		}
+	}
+	
+	public void reverse() {
+		Node prevNode = null;
+		Node curNode;
+		Node nextNode;
+		nextNode = head;
+		curNode = head;
+		while(nextNode != null) {
+			nextNode = nextNode.next;
+			curNode.next = prevNode;
+			prevNode = curNode;
+			curNode = nextNode;
+		}
+		head = prevNode;
 	}
 
 	public void printToFile() {
