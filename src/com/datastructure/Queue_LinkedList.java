@@ -1,10 +1,6 @@
 package com.datastructure;
 
-import java.io.IOException;
-
-import com.datastructure.Queue_LinkedList.Node;
-
-public class LinkedList<T extends Comparable<T>> {
+public class Queue_LinkedList<T extends Comparable<T>> {
 
 	private Node head;
 
@@ -22,7 +18,7 @@ public class LinkedList<T extends Comparable<T>> {
 	 * 
 	 * @param data to be inserted at end of the list
 	 */
-	public void add(final T data) {
+	public void enQueue(final T data) {
 		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
@@ -71,7 +67,6 @@ public class LinkedList<T extends Comparable<T>> {
 				pos = pos + 1;
 			}
 			System.out.println("key not found");
-			add(key);
 
 		}
 	}
@@ -96,20 +91,26 @@ public class LinkedList<T extends Comparable<T>> {
 	}
 
 	/*
-	 * method to print the linked list
+	 * method to delete data from the beginning in queue here data is deleted from
+	 * front end
 	 */
-	public void printToFile() {
-		Node temp = head;
-		System.out.println("LinkedList:");
-		while (temp != null) {
-			System.out.print(temp.data + "->");
-			temp = temp.next;
 
+	public void deQueue() {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("Queue is empty");
+			return;
+		} else if (head.next == null) {
+			temp = null;
+
+		} else {
+			head = head.next;
+			temp = null;
 		}
 	}
 
 	/*
-	 * method to find size of the Stack if stack has one element this method prints
+	 * method to find size of the Queue if queue has one element this method prints
 	 * size as 1 else traverses till list is empty and increments size
 	 */
 	public void size() {
@@ -122,7 +123,7 @@ public class LinkedList<T extends Comparable<T>> {
 				temp = temp.next;
 				size++;
 			}
-			System.out.println("Size of Stack is " + size);
+			System.out.println("Size of Queue is " + size);
 		}
 	}
 

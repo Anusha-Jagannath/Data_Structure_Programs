@@ -26,20 +26,20 @@ public class Main {
 		String text = sc.nextLine();
 		PalindromeChecker checker = new PalindromeChecker();
 		checker.checkpalindrome(text);
-		
+
 		BinarySearchTree tree = new BinarySearchTree();
-		Scanner scanner  = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter no of testcases");
 		int testCases = scanner.nextInt();
 		System.out.println("Enter no of nodes");
 		int noOfNodes[] = new int[testCases];
-		for(int i = 0;i<testCases;i++) {
+		for (int i = 0; i < testCases; i++) {
 			noOfNodes[i] = scanner.nextInt();
 		}
-		for(int i = 0;i<testCases;i++) {
-		tree.findNoOfBST(noOfNodes[i]);
+		for (int i = 0; i < testCases; i++) {
+			tree.findNoOfBST(noOfNodes[i]);
 		}
-		
+
 		PrimeNumber primeno = new PrimeNumber();
 		primeno.compute();
 		primeno.isAnagram();
@@ -47,6 +47,7 @@ public class Main {
 		primeno.printnonAnagram();
 		System.out.println("Reversed linked list contents are");
 		primeno.reverseStack();
-		
+		primeno.printQueue();
+
 	}
 }

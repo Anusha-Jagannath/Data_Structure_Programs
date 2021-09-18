@@ -2,7 +2,22 @@ package com.datastructure;
 
 import java.util.Arrays;
 
+/*
+ * PrimeNumber class prints prime no within 0-1000 
+ * checks for anagram prime no
+ * prints both anagram and non anagram prime no
+ * adds anagram prime number to stack using linked list and reverses the contents and displays
+ * adds anagram prime number to queue using linked list and prints the contents of queue
+ */
 public class PrimeNumber {
+
+	int[][] array = new int[10][100];
+	int[][] prime = new int[10][100];
+	int anagram[][] = new int[10][100];
+	int nonanagram[][] = new int[10][100];
+	LinkedList<Integer> list = new LinkedList<Integer>();
+	Queue_LinkedList<Integer> queue = new Queue_LinkedList<Integer>();
+
 	/*
 	 * method to check whether number is prime or not
 	 * 
@@ -10,12 +25,6 @@ public class PrimeNumber {
 	 * 
 	 * @return true if number is prime else return false
 	 */
-	int[][] array = new int[10][100];
-	int[][] prime = new int[10][100];
-	int anagram[][] = new int[10][100];
-	int nonanagram[][] = new int[10][100];
-	LinkedList<Integer> list = new LinkedList<Integer>();
-
 	public boolean findPrime(int number) {
 
 		Boolean isPrime = true;
@@ -83,8 +92,8 @@ public class PrimeNumber {
 	}
 
 	/*
-	 * method to check prime no is anagram or not this method calls another
-	 *  method anagram to find whether prime no are anagram or not
+	 * method to check prime no is anagram or not this method calls another method
+	 * anagram to find whether prime no are anagram or not
 	 */
 	public void isAnagram() {
 		for (int i = 0; i < 10; i++) {
@@ -119,20 +128,33 @@ public class PrimeNumber {
 				if (anagram[i][j] != 0) {
 					System.out.print(anagram[i][j] + " ");
 					list.add(anagram[i][j]);
+					queue.enQueue(anagram[i][j]);
 				}
 			}
 			System.out.println();
 		}
 	}
 	/*
-	 * calls linked list method to reverse the list
-	 * and prints the reversed list
+	 * calls linked list method to reverse the list and prints the reversed list
 	 */
-	
+
 	public void reverseStack() {
-		list.print(); //before reversing
-		list.reverse();
-		list.print(); //after reversing
+		System.out.println("\nPrinting anagram using stack data structure");
+		list.print(); // before reversing
+		System.out.println("\nreversing the anagram using stack data structure");
+		list.reverse(); // calls reverse method in linked list
+		list.print(); // after reversing
+		list.size();
+		
+	}
+
+	/*
+	 * method to print anagrams using queue
+	 */
+	public void printQueue() {
+		System.out.println("\nPrinting anagram using queue data structure");
+		queue.print();
+		queue.size();
 	}
 
 	/*
