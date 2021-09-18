@@ -1,12 +1,20 @@
 package com.datastructure;
 
+import java.util.Arrays;
+
 public class PrimeNumber {
-/*
- * method to check whether number is prime or not
- * @param number which needs to be checked whether prime or not
- * @return true if number is prime
- * else return false
- */
+	/*
+	 * method to check whether number is prime or not
+	 * 
+	 * @param number which needs to be checked whether prime or not
+	 * 
+	 * @return true if number is prime else return false
+	 */
+	int[][] array = new int[10][100];
+	int[][] prime = new int[10][100];
+	int anagram[][] = new int[10][100];
+	int nonanagram[][] = new int[10][100];
+
 	public boolean findPrime(int number) {
 
 		Boolean isPrime = true;
@@ -20,8 +28,7 @@ public class PrimeNumber {
 	}
 
 	public void compute() {
-		int[][] array = new int[10][100];
-		int[][] prime = new int[10][100];
+
 		// initializing the array with natural numbers
 		int temp = 1;
 		for (int i = 0; i < 10; i++) {
@@ -30,7 +37,7 @@ public class PrimeNumber {
 				temp++;
 			}
 		}
-		//initialize prime array
+		// initialize prime array
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 100; j++) {
 				if (findPrime(array[i][j])) {
@@ -39,11 +46,92 @@ public class PrimeNumber {
 					prime[i][j] = 0;
 			}
 		}
-		//printing prime numbers within the range
-		for(int i=0;i<10;i++) {
-			for(int j=0;j<100;j++) {
-				if(prime[i][j]!=0) {
-					System.out.print(prime[i][j]+" ");
+		// printing prime numbers within the range
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 100; j++) {
+				if (prime[i][j] != 0) {
+					System.out.print(prime[i][j] + " ");
+				}
+			}
+			System.out.println();
+		}
+	}
+
+	/*
+	 * method to find 2 strings are anagram or not
+	 * 
+	 * @param string1 and string2 which needs to be compared
+	 * 
+	 * @return true if both strings are anagram else returns false
+	 */
+	public boolean anagram(String string1, String string2) {
+		if (string1.length() != string2.length()) {
+			return false;
+		}
+		char[] array1 = string1.toCharArray();
+		Arrays.sort(array1);
+		char[] array2 = string2.toCharArray();
+		Arrays.sort(array2);
+
+		for (int i = 0; i < array1.length; i++) {
+			if (array1[i] != array2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/*
+	 * method to check prime no is anagram or not this method calls another method
+	 * anagram to find whether prime are anagram or not
+	 */
+	public void isAnagram() {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 100; j++) {
+				if (prime[i][j] != 0) {
+					for (int k = j + 1; k < 100; k++) {
+						if (prime[i][k] != 0 && anagram(String.valueOf(prime[i][j]), String.valueOf(prime[i][k]))) {
+							anagram[i][j] = prime[i][j];
+							anagram[i][k] = prime[i][k];
+						}
+					}
+				}
+			}
+		}
+
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 100; j++) {
+				if (prime[i][j] != anagram[i][j]) {
+					nonanagram[i][j] = prime[i][j];
+				}
+			}
+		}
+	}
+
+	/*
+	 * method to print anagrams
+	 */
+	public void printAnagrams() {
+		System.out.println("Anangrams are");
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 100; j++) {
+				if (anagram[i][j] != 0) {
+					System.out.print(anagram[i][j] + " ");
+				}
+			}
+			System.out.println();
+		}
+	}
+
+	/*
+	 * method to print non anagrams
+	 */
+	public void printnonAnagram() {
+		System.out.println("Non Anangrams are");
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 100; j++) {
+				if (nonanagram[i][j] != 0) {
+					System.out.print(nonanagram[i][j] + " ");
 				}
 			}
 			System.out.println();
