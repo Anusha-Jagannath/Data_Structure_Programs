@@ -12,7 +12,6 @@ public class OrderedList {
 
 	public void work() throws IOException {
 		File file = new File("/Users/anushajs/eclipse-workspace/Yml-training/LinkedList/src/com/list/number.txt");
-
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		int i = 0;
 		String st;
