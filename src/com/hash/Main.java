@@ -10,7 +10,7 @@ import java.io.IOException;
  * creates a key value pair for the numbers
  * finally searches the number efficiently
  * if the number is present then that node is deleted
- * else the number is added to the map
+ * else the number is pushed to the map
  */
 public class Main {
 

@@ -39,5 +39,8 @@ public class Main {
 		for(int i = 0;i<testCases;i++) {
 		tree.findNoOfBST(noOfNodes[i]);
 		}
+		
+		PrimeNumber primeno = new PrimeNumber();
+		primeno.compute();
 	}
 }
