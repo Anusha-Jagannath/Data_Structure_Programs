@@ -1,61 +1,49 @@
 package com.hash;
 
-public class HashMap <K,V>{
+public class HashMap<K, V> {
 	MyLinkedList<K> myLinkedList;
-	
+
 	public HashMap() {
 		myLinkedList = new MyLinkedList();
 	}
-	
-	public V get(K key)
-	{
-		MyMapNode<K, V> myMapNode=(MyMapNode<K,V>) this.myLinkedList.search(key);
-		return (myMapNode==null)?null:myMapNode.getValue();
+
+	public V get(K key) {
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) this.myLinkedList.search(key);
+		return (myMapNode == null) ? null : myMapNode.getValue();
 	}
-	
-	public void add(K key,V value)
-	{
-		MyMapNode<K,V> myMapNode=(MyMapNode<K,V>) this.myLinkedList.search(key);
-		if(myMapNode == null)
-		{
-			myMapNode = new MyMapNode<>(key,value);
+
+	public void add(K key, V value) {
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) this.myLinkedList.search(key);
+		if (myMapNode == null) {
+			myMapNode = new MyMapNode<>(key, value);
 			this.myLinkedList.append(myMapNode);
-		}
-		else
-		{
+		} else {
 			myMapNode.setValue(value);
 		}
 	}
+
 	/*
 	 * method to delete the given word in the sentence
-	 * @param key and value
-	 * checks whether word is found or not
-	 * if found then calls pop method in myLinkedList
-	 * else doesnot pop the word
+	 * 
+	 * @param key and value checks whether word is found or not if found then calls
+	 * pop method in myLinkedList else does not pop the word
 	 */
-	public void deleteWord(K key,V value)
-	{
+	public void deleteWord(K key, V value) {
 		System.out.println(key);
-		MyMapNode<K,V> myMapNode=(MyMapNode<K,V>)this.myLinkedList.search(key);
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) this.myLinkedList.search(key);
 		System.out.println(myMapNode);
-		if(myMapNode!=null)
-		{
-			myMapNode=new MyMapNode<>(key,value);
+		if (myMapNode != null) {
+			myMapNode = new MyMapNode<>(key, value);
 			this.myLinkedList.pop();
 			System.out.println("Deleted successfully");
-		}
-		else
-		{
+		} else {
 			System.out.println("Word not found.");
-			
+
 		}
 	}
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "MyHashNodes {" + myLinkedList.printMyNodes() + "}";
-	}	
+	}
 }
-
