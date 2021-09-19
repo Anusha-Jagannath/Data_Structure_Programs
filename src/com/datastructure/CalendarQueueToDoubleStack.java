@@ -2,7 +2,7 @@ package com.datastructure;
 
 import java.util.Scanner;
 
-public class CalendarQueue {
+public class CalendarQueueToDoubleStack {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -21,13 +21,14 @@ public class CalendarQueue {
 				if (isLeapYear && month == 2) {
 					days = 29;
 					day = DataStructureQueue.calculateDayOfWeek(1, month, year);
-					DataStructureQueue.printCalendarUsingQueue(day, days);
+					DataStructureQueue.printCalendarUsingQueueDoubleStack(day, days);
 
 				} else {
 					days = daysPerYear[month - 1];
 					day = DataStructureQueue.calculateDayOfWeek(1, month, year);
-					DataStructureQueue.printCalendarUsingQueue(day, days);
+					DataStructureQueue.printCalendarUsingQueueDoubleStack(day, days);
 				}
+
 			} else
 				System.out.println("please enter valid year");
 		} else
@@ -35,5 +36,4 @@ public class CalendarQueue {
 
 		scanner.close();
 	}
-
 }
