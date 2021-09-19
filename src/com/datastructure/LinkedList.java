@@ -180,4 +180,64 @@ public class LinkedList<T extends Comparable<T>> {
 		System.out.println(temp.data);
 	}
 
+	/*
+	 * method to check whether stack is empty or not
+	 */
+	public boolean isEmpty() {
+		if (head == null)
+			return true;
+		else
+			return false;
+	}
+
+	/*
+	 * method to return top element from the stack
+	 */
+	public Object peek() {
+		Node temp = head;
+		if (head == null)
+			return head;
+		else {
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+		}
+		return temp.data;
+	}
+
+	/*
+	 * method to pop top element in the stack
+	 */
+	public void pop() {
+		Node temp = head;
+		Node cur = temp;
+		if (head == null) {
+			System.out.println("Stack is empty");
+			return;
+		} else if (head.next == null) {
+			temp = null;
+			System.out.println("Deleted " + head.data);
+
+		} else {
+			while (temp.next != null) {
+				cur = temp;
+				temp = temp.next;
+			}
+			System.out.println("Deleted " + temp.data);
+			cur.next = null;
+		}
+	}
+
+	public void push(Object object) {
+
+	}
+
+	public void showStackWithoutSpace() {
+
+	}
+
+	public String get() {
+		return null;
+	}
+
 }
